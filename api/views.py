@@ -1,17 +1,17 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from app_base.models import Item
-from .serializers import ItemSerializer
+from app_base.models import Employee
+from .serializers import EmployeeSerializer
 
 @api_view(['GET'])
 def getData(request):
-    items = Item.objects.all()
-    serializer = ItemSerializer(items, many=True)
+    employees = Employee.objects.all()
+    serializer = EmployeeSerializer(employees, many=True)
     return Response(serializer.data)
 
 @api_view(['POST'])
-def addItem(request):
-    serializer = ItemSerializer(data=request.data)
+def addEmployee(request):
+    serializer = EmployeeSerializer(data=request.data)
 
     if serializer.is_valid():
         serializer.save()

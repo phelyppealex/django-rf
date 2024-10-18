@@ -1,9 +1,7 @@
 from django.db import models
 
-# Create your models here.
-
-class Item(models.Model):
+class Employee(models.Model):
     name = models.CharField(max_length=200)
-    created = models.DateTimeField(auto_now_add=True)
-
-
+    cpf = models.CharField(max_length=14)
+    cargo = models.CharField(max_length=200)
+    department = models.CharField(max_length=200)
